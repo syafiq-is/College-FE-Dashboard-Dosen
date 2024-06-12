@@ -1,0 +1,236 @@
+:root {
+  --color-brand-1: #7430a9;
+  --color-brand-2: #ff9800;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-light-gray: #edecec;
+  --color-mid-gray: #d9d9d9;
+  --color-dark-gray: #5f5f5f;
+  --color-success: #16b14a;
+  --color-info: #4b9ce8;
+  --color-danger: #e62e23;
+}
+
+body {
+  background-color: var(--color-light-gray);
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+/* Custom Bootstrap Variant */
+.fs-small {
+  font-size: 0.8rem;
+}
+
+.bg-brand-1 {
+  background-color: var(--color-brand-1);
+}
+.bg-light-gray {
+  background-color: var(--color-light-gray);
+}
+.bg-success {
+  background-color: var(--color-success) !important;
+}
+.bg-info {
+  background-color: var(--color-info) !important;
+}
+.bg-danger {
+  background-color: var(--color-danger) !important;
+}
+.bg-gradient-purpleBlue {
+  background-image: linear-gradient(to bottom right, #7430a9, #4b9ce8);
+}
+
+.text-brand-1 {
+  color: var(--color-brand-1);
+}
+.text-brand-2 {
+  color: var(--color-brand-2);
+}
+.text-dark-gray {
+  color: var(--color-dark-gray);
+}
+.text-success {
+  color: var(--color-success);
+}
+.text-info {
+  color: var(--color-info);
+}
+.text-danger {
+  color: var(--color-danger);
+}
+
+.btn-brand-2 {
+  border: 2px solid var(--color-brand-2);
+  background-color: var(--color-brand-2);
+  color: white;
+}
+.btn-brand-2:hover {
+  color: white;
+  background-color: var(--color-brand-2);
+  filter: brightness(90%);
+}
+.btn-info {
+  border: 2px solid var(--color-info);
+  background-color: var(--color-info);
+  color: white;
+}
+.btn-info:hover {
+  color: white;
+  background-color: var(--color-info);
+  filter: brightness(90%);
+}
+.btn-success {
+  border: 2px solid var(--color-success);
+  background-color: var(--color-success);
+  color: white;
+}
+.btn-success:hover {
+  color: white;
+  background-color: var(--color-success);
+  filter: brightness(90%);
+}
+.btn-danger {
+  border: 2px solid var(--color-danger);
+  background-color: var(--color-danger);
+  color: white;
+}
+.btn-danger:hover {
+  color: white;
+  background-color: var(--color-danger);
+  filter: brightness(90%);
+}
+
+/* Custom Element */
+.login-register-btn {
+  background-color: transparent;
+  border: 3px solid var(--color-brand-2);
+}
+.login-register-btn * {
+  text-decoration: none;
+  padding: 8px 20px;
+  color: var(--color-brand-2);
+  cursor: pointer;
+}
+.login-register-btn .active {
+  background-color: var(--color-brand-2);
+  color: var(--color-white);
+}
+
+/* Signup login form input */
+.input-underline {
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 5px;
+}
+.input-underline:focus {
+  outline: none;
+}
+
+.navbar {
+  padding: 10px 0;
+}
+
+.cari-mahasiswa {
+  padding: 5px 10px;
+}
+.cari-mahasiswa input {
+  border: none;
+}
+.cari-mahasiswa input:focus {
+  outline: none;
+}
+
+.sidebar {
+  position: fixed;
+  width: 280px;
+  height: 100vh;
+}
+.sidebar div {
+  border-bottom: 1px solid var(--color-light-gray);
+  padding: 15px 20px;
+}
+.sidebar div.active {
+  color: var(--color-brand-1) !important;
+}
+
+#content {
+  margin-left: 280px;
+  padding: 40px 60px;
+}
+#navbar-logo {
+  height: 40px;
+}
+#dashboard-profile-img {
+  width: 150px;
+}
+#nav-burger {
+  display: none;
+}
+
+@media only screen and (max-width: 1400px) {
+  .stack-md {
+    display: flex;
+    flex-direction: column;
+  }
+  .hidden-md {
+    display: none !important;
+  }
+  .full-md {
+    width: 100% !important;
+  }
+}
+/* Mobile View */
+@media only screen and (max-width: 1000px) {
+  /* Utility classes */
+  .stack-sm {
+    display: flex;
+    flex-direction: column;
+  }
+  .stack-sm-gap {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .hidden-sm {
+    display: none;
+  }
+
+  /* Dashboard */
+  #dashboard-profile-img {
+    width: 90px;
+  }
+
+  /* Global responsive */
+  html {
+    font-size: 10px;
+  }
+  .navbar {
+    height: fit-content;
+    padding: 10px 0;
+  }
+  #navbar-logo {
+    height: 30px;
+  }
+  #navbar-profile {
+    display: none !important;
+  }
+  #sidebar {
+    position: fixed;
+    width: 100%;
+    /* display: none; */
+  }
+  #sidebar.hidden {
+    display: none;
+  }
+  #content {
+    margin: 0;
+    padding: 0;
+  }
+  #nav-burger {
+    display: block;
+  }
+}

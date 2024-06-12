@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Script -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap Font Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins"
+    />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar bg-brand-1 sticky-top">
+      <div class="d-flex ms-3 align-items-center">
+        <button id="nav-burger" class="btn p-0" onclick="toggleSidebar()">
+          <i class="bi bi-list text-white fs-2"></i>
+        </button>
+
+        <a href="/" class="ms-3">
+          <img id="navbar-logo" src="img/logo-navbar.png" alt="amikom" />
+        </a>
+      </div>
+
+      <div id="navbar-profile" class="me-3 d-flex align-items-center">
+        <div class="me-3">
+          <div
+            class="m-0 text-white fw-bold fs-small"
+            style="line-height: 14px"
+          >
+            Syafiq Ilham Sholehudin
+          </div>
+          <div class="m-0 text-white text-end fs-small">23.01.4994</div>
+        </div>
+        <div>
+          <img
+            class="rounded-circle"
+            src="img/profile.png"
+            width="45px"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar bg-white hidden">
+      <div class="fw-semibold text-dark-gray">Menu Dosen :</div>
+      <div class="active">
+        <a href="index.html">
+          <i class="bi bi-house-door-fill me-1"></i>
+          Dashboard
+        </a>
+      </div>
+      <div>
+        <a href="">
+          <i class="bi bi-person-check-fill me-1"></i>
+          Kehadiran
+        </a>
+      </div>
+      <div>
+        <a href="input-nilai.html">
+          <i class="bi bi-keyboard-fill me-1"></i>
+          Input Nilai
+        </a>
+      </div>
+      <div>
+        <a href="rekapitulasi.html">
+          <i class="bi bi-file-text-fill me-1"></i>
+          Rekapitulasi Nilai
+        </a>
+      </div>
+
+      <div class="fw-semibold text-dark-gray">Keluar :</div>
+      <div class="text-danger">
+        <a href="/login.html">
+          <i class="bi bi-box-arrow-right me-1"></i>
+          Keluar
+        </a>
+      </div>
+    </div>
+    <!-- Sidebar End -->
+
+    <!-- Modal -->
+    <div
+      class="modal fade modal-lg"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div
+              class="mx-3 w-100 d-flex justify-content-between align-items-center"
+            >
+              <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel">
+                Input Nilai UTS
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="mx-3 mt-3">
+              <div class="container-fluid">
+                <div class="row mb-3">
+                  <div class="col-2 d-flex align-items-center">Prodi</div>
+                  <div class="col d-flex align-items-center">
+                    <span class="me-2">:</span>
+                    <span class=""> Teknik Informatika</span>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-2 d-flex align-items-center">Kelas</div>
+                  <div class="col d-flex align-items-center">
+                    <span class="me-2">:</span>
+                    <span class=""> D3TI01</span>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-2 d-flex align-items-center">Mata Kuliah</div>
+                  <div class="col d-flex align-items-center">
+                    <span class="me-2">:</span>
+                    <span class=""> Pemrograman Web</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cari Mahasiswa -->
+              <div class="d-flex justify-content-between mt-5 mb-3">
+                <div class="cari-mahasiswa border rounded">
+                  <i class="bi bi-search me-1"></i>
+                  <input type="text" placeholder="Cari Mahasiswa" />
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  data-bs-dismiss="modal"
+                >
+                  <i class="bi bi-floppy-fill me-1"></i>
+                  Simpan
+                </button>
+              </div>
+              <!-- Cari Mahasiswa End -->
+
+              <!-- Table -->
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-center" style="width: 30px">
+                      No
+                    </th>
+                    <th scope="col" class="text-center" style="width: 120px">
+                      NIM
+                    </th>
+                    <th scope="col" class="text-center">Nama</th>
+                    <th scope="col" class="text-center" style="width: 120px">
+                      Nilai
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                  <tr>
+                    <td scope="col" class="text-center">1</td>
+                    <td scope="col">23.01.4994</td>
+                    <td scope="col">Syafiq Ilham Sholehudin</td>
+                    <td scope="col" class="text-center">
+                      <input
+                        type="number"
+                        placeholder="00"
+                        style="width: 120px"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- Table End -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal End -->
+
+    <!-- Content -->
+    <div id="content">
+      <div class="bg-info rounded text-white mb-4" style="padding: 20px 30px">
+        Perhatian
+        <ul class="m-0">
+          <li>
+            Sebelum menginput nilai pastikan pengaturan akademik telah diubah ke
+            nilai yang ingin diinput
+          </li>
+          <li>
+            Jika ingin menginput nilai menggunakan excel, silahkan menggunakan
+            template yang telah disediakan dengan menekan tombol 'Template
+            excel' atau 'Download' jika ingin menginput dari nilai yang sudah
+            ada
+          </li>
+        </ul>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row bg-white rounded p-0">
+          <div
+            class="py-3 border-bottom fw-bold fs-5 d-flex justify-content-between align-items-center"
+            style="padding: 0 30px"
+          >
+            <span>Input Nilai</span>
+            <button class="btn btn-success">
+              <i class="bi bi-download me-1"></i>
+              Template Excel
+            </button>
+          </div>
+
+          <div class="py-4" style="padding: 0 30px">
+            <!-- Filter Group -->
+            <div class="container-fluid">
+              <div class="row stack-sm">
+                <div class="col">
+                  <div class="row mb-3">
+                    <div class="col-4 d-flex align-items-center">Prodi</div>
+                    <div class="col d-flex align-items-center">
+                      <span class="me-2">:</span>
+                      <select class="form-select form-select-sm bg-light-gray">
+                        <option value="">Teknik Informatika</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-4 d-flex align-items-center">Kelas</div>
+                    <div class="col d-flex align-items-center">
+                      <span class="me-2">:</span>
+                      <select class="form-select form-select-sm bg-light-gray">
+                        <option value="">D3TI01</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-4 d-flex align-items-center">
+                      Mata Kuliah
+                    </div>
+                    <div class="col d-flex align-items-center">
+                      <span class="me-2">:</span>
+                      <select class="form-select form-select-sm bg-light-gray">
+                        <option value="">Pemrograman Web</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mb-3 mb-0">
+                    <div class="col-4 d-flex align-items-center">Dosen</div>
+                    <div class="col d-flex align-items-center">
+                      <span class="me-2">:</span>
+                      <span class=""> Syafiq Ilham Sholehudin S.Kom </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-1 hidden-sm"></div>
+
+                <div class="col">
+                  <div class="row mb-3">
+                    <div class="col-4 d-flex align-items-center">Semester</div>
+                    <div class="col d-flex align-items-center">
+                      <span class="me-2">:</span>
+                      <select class="form-select form-select-sm bg-light-gray">
+                        <option value="">GENAP</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-4 d-flex align-items-center">
+                      Tahun Akademik
+                    </div>
+                    <div class="col d-flex align-items-center">
+                      <span class="me-2">:</span>
+                      <select class="form-select form-select-sm bg-light-gray">
+                        <option value="">2023/2024</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-4 d-flex align-items-center">
+                      Tipe Input
+                    </div>
+                    <div class="col d-flex align-items-center">
+                      <span class="me-2">:</span>
+                      <select class="form-select form-select-sm bg-light-gray">
+                        <option value="">Responsi 1</option>
+                        <option value="">Responsi 2</option>
+                        <option value="">UTS</option>
+                        <option value="">UAS</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Filter Group End -->
+
+            <!-- Cari Mahasiswa -->
+            <div class="d-flex justify-content-between mt-4 mb-3 stack-sm-gap">
+              <div class="cari-mahasiswa border rounded">
+                <i class="bi bi-search me-1"></i>
+                <input type="text" placeholder="Cari Mahasiswa" />
+              </div>
+              <div class="stack-sm-gap">
+                <button class="btn btn-success">
+                  <i class="bi bi-download me-1"></i>
+                  Download
+                </button>
+                <button class="btn btn-danger">
+                  <i class="bi bi-upload me-1"></i>
+                  Upload
+                </button>
+                <button
+                  class="btn btn-info"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                >
+                  <i class="bi bi-keyboard-fill me-1"></i>
+                  Input
+                </button>
+              </div>
+            </div>
+            <!-- Cari Mahasiswa End -->
+
+            <!-- Table -->
+            <div class="overflow-x-scroll">
+              <div style="width: 2000px">
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="text-center">No</th>
+                      <th scope="col" class="text-center">NIM</th>
+                      <th scope="col" class="text-center">Nama</th>
+                      <th scope="col" class="text-center">T1</th>
+                      <th scope="col" class="text-center">T2</th>
+                      <th scope="col" class="text-center">T3</th>
+                      <th scope="col" class="text-center">T4</th>
+                      <th scope="col" class="text-center">T5</th>
+                      <th scope="col" class="text-center">T6</th>
+                      <th scope="col" class="text-center">T7</th>
+                      <th scope="col" class="text-center">T8</th>
+                      <th scope="col" class="text-center">T9</th>
+                      <th scope="col" class="text-center">T10</th>
+                      <th scope="col" class="text-center">T11</th>
+                      <th scope="col" class="text-center">T12</th>
+                      <th scope="col" class="text-center">T13</th>
+                      <th scope="col" class="text-center">T14</th>
+                      <th scope="col" class="text-center">
+                        Rata-rata Nilai Tugas
+                      </th>
+                      <th scope="col" class="text-center">Responsi 1</th>
+                      <th scope="col" class="text-center">Responsi 2</th>
+                      <th scope="col" class="text-center">UTS</th>
+                      <th scope="col" class="text-center">UAS</th>
+                      <th scope="col" class="text-center">Kehadiran</th>
+                      <th scope="col" class="text-center">
+                        Presentase Kehadiran
+                      </th>
+                      <th scope="col" class="text-center">Nilai Angka</th>
+                      <th scope="col" class="text-center">Nilai Huruf</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-group-divider">
+                    <tr>
+                      <td scope="row" class="text-center">1</td>
+                      <td scope="row" class="text-center">23.01.4994</td>
+                      <td scope="row">Syafiq Ilham Sholehudin</td>
+                      <td scope="row" class="text-center">88</td>
+                      <td scope="row" class="text-center">88</td>
+                      <td scope="row" class="text-center">88</td>
+                      <td scope="row" class="text-center">88</td>
+                      <td scope="row" class="text-center">88</td>
+                      <td scope="row" class="text-center">88</td>
+                      <td scope="row" class="text-center">88</td>
+                      <td scope="row" class="text-center">88</td>
+                      <td scope="row" class="text-center">88</td>
+                      <td scope="row" class="text-center">88</td>
+                      <td scope="row" class="text-center">88</td>
+                      <td scope="row" class="text-center">88</td>
+                      <td scope="row" class="text-center">88</td>
+                      <td scope="row" class="text-center">88</td>
+                      <td scope="row" class="text-center">83</td>
+                      <td scope="row" class="text-center">92</td>
+                      <td scope="row" class="text-center">90</td>
+                      <td scope="row" class="text-center">89</td>
+                      <td scope="row" class="text-center">95</td>
+                      <td scope="row" class="text-center">14</td>
+                      <td scope="row" class="text-center">100%</td>
+                      <td scope="row" class="text-center">94</td>
+                      <td scope="row" class="text-center">A</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Table End -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Content End -->
+  </body>
+</html>
